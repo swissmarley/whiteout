@@ -200,8 +200,13 @@ To sweep the twins away (safe — they only hold Finder metadata):
 npm run clean:sidecars
 ```
 
-If you put this under git on the same drive, run that before committing: sidecars inside
-`.git/` can corrupt refs and pack indexes.
+Don't keep a git directory on the same drive: macOS writes sidecars inside `.git/` too, as fast
+as git writes its own files, and they break refs and pack indexes (`badRefName`,
+`non-monotonic index`). Keep it on an APFS disk and leave only a link file in the checkout:
+
+```bash
+git init --separate-git-dir ~/Developer/git-dirs/Multiplayer-FPS.git
+```
 
 ## Developer hooks
 
