@@ -1,0 +1,16 @@
+{
+  "name": "whiteout",
+  "version": "1.0.0",
+  "description": "WHITEOUT - co-op multiplayer FPS in a snowy city alley (three.js + Node/WebSocket)",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server/index.js",
+    "test": "node --test test/hitreg.test.js test/e2e.test.js",
+    "build:pages": "node scripts/pages.mjs",
+    "clean:sidecars": "dot_clean -m . 2>/dev/null; find . -name '._*' -type f -delete; find . -name '.DS_Store' -type f -delete"
+  },
+  "dependencies": {
+    "ws": "^8.22.0"
+  }
+}

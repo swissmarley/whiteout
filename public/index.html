@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WHITEOUT</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
+<script type="importmap">
+{ "imports": { "three": "./vendor/three/build/three.module.js", "three/addons/": "./vendor/three/examples/jsm/" } }
+</script>
+</head>
+<body>
+<canvas id="view"></canvas>
+
+<div id="hud" class="hidden">
+  <div id="crosshair"><i class="t"></i><i class="b"></i><i class="l"></i><i class="r"></i><b class="dot"></b></div>
+  <div id="hitmarker"><i></i><i></i><i></i><i></i></div>
+  <div id="dmg-dirs"></div>
+
+  <div id="top">
+    <div id="wave-box"><span id="wave-label">WAVE</span><span id="wave-num">1</span></div>
+    <div id="wave-sub"></div>
+  </div>
+  <div id="feed"></div>
+  <div id="popups"></div>
+  <div id="banner"><div id="banner-main"></div><div id="banner-sub"></div></div>
+  <div id="prompt"></div>
+
+  <div id="vitals">
+    <div id="hp-row"><span id="hp-num">100</span><div id="hp-bar"><div id="hp-fill"></div></div></div>
+    <div id="lives"></div>
+  </div>
+  <div id="ammo">
+    <div id="ammo-main"><span id="ammo-mag">30</span><span id="ammo-res">/ 180</span></div>
+    <div id="ammo-sub"><span id="fire-mode">AUTO</span><span id="gun-name">MK4 CARBINE</span></div>
+  </div>
+  <div id="net-stat"></div>
+
+  <div id="scoreboard" class="hidden">
+    <h3>SQUAD</h3>
+    <table><thead><tr><th>OPERATOR</th><th>KILLS</th><th>DEATHS</th><th>SCORE</th><th>PING</th></tr></thead><tbody id="score-rows"></tbody></table>
+  </div>
+
+  <div id="death" class="hidden"><div id="death-main">K.I.A.</div><div id="death-sub"></div></div>
+</div>
+
+<div id="menu">
+  <div id="menu-inner">
+    <div class="eyebrow">CO-OP HOLDOUT &middot; 1&ndash;8 OPERATORS</div>
+    <h1>WHITE<span>OUT</span></h1>
+    <p class="tag">Hold the alley. They come in waves, and the snow doesn't stop.</p>
+    <form id="join">
+      <input id="name" maxlength="14" placeholder="CALLSIGN" autocomplete="off" spellcheck="false">
+      <button id="deploy" type="submit">DEPLOY</button>
+    </form>
+    <div id="menu-status">Connecting&hellip;</div>
+    <div id="controls">
+      <div><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> move</div>
+      <div><kbd>SHIFT</kbd> sprint &nbsp; <kbd>C</kbd> crouch</div>
+      <div><kbd>MMB</kbd> / <kbd>V</kbd> knife</div>
+      <div><kbd>SPACE</kbd> jump &middot; vault &middot; mantle</div>
+      <div><kbd>LMB</kbd> fire &nbsp; <kbd>RMB</kbd> aim</div>
+      <div><kbd>R</kbd> reload &nbsp; <kbd>B</kbd> fire mode</div>
+      <div><kbd>T</kbd> weapon light &nbsp; <kbd>F</kbd> resupply</div>
+      <div><kbd>TAB</kbd> squad &nbsp; <kbd>ESC</kbd> settings</div>
+    </div>
+  </div>
+</div>
+
+<div id="pause" class="hidden">
+  <div id="pause-inner">
+    <h2>PAUSED</h2>
+    <p class="muted" id="pause-note">The fight carries on without you.</p>
+    <label>Mouse sensitivity <output id="o-sens"></output><input id="s-sens" type="range" min="0.2" max="3" step="0.05"></label>
+    <label>Field of view <output id="o-fov"></output><input id="s-fov" type="range" min="60" max="100" step="1"></label>
+    <label>Volume <output id="o-vol"></output><input id="s-vol" type="range" min="0" max="1" step="0.02"></label>
+    <label>Graphics
+      <select id="s-quality"><option value="low">Low</option><option value="medium">Medium</option><option value="high">High</option><option value="ultra">Ultra</option></select>
+    </label>
+    <button id="resume">RESUME</button>
+    <button id="quit">MAIN MENU</button>
+  </div>
+</div>
+
+<div id="fatal" class="hidden"></div>
+<script type="module" src="src/main.js"></script>
+</body>
+</html>

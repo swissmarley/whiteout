@@ -1,0 +1,7 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    { "name": "whiteout", "runtimeExecutable": "node", "runtimeArgs": ["server/index.js"], "port": 7070 },
+    { "name": "whiteout-debug", "runtimeExecutable": "env", "runtimeArgs": ["PORT=7071", "node", "server/index.js", "--debug"], "port": 7071 }
+  ]
+}
